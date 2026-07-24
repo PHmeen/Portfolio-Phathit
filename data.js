@@ -20,9 +20,9 @@ const portfolioData = {
             icon: "bx-layout",
             description: "เว็บไซต์พอร์ตโฟลิโอส่วนตัวแบบ Responsive ทำงานได้รวดเร็ว พัฒนาด้วย HTML5, CSS3 และ JavaScript",
             tags: ["HTML5", "CSS3", "JavaScript"],
-            github: "https://github.com/PHmeen",
-            demo: "#home",
-            demoText: "หน้าปัจจุบัน"
+            github: "https://github.com/PHmeen/Portfolio-Phathit",
+            demo: "https://phmeen.github.io/Portfolio-Phathit/",
+            demoText: "ชมเว็บไซต์"
         },
         {
             title: "RSP-South-Catering",
