@@ -209,11 +209,28 @@ section {
     width: 100%;
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 #menu-icon {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--text-main);
     cursor: pointer;
     display: none;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+
+#menu-icon:hover {
+    background: rgba(24, 247, 184, 0.15);
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 /* ==========================================================================
