@@ -357,6 +357,21 @@ section {
     box-shadow: 0 0 15px rgba(24, 247, 184, 0.2);
 }
 
+.btn-outline {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+    border: 1.5px solid var(--border-glow);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: rgba(24, 247, 184, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 20px var(--primary-glow);
+    transform: translateY(-3px);
+}
+
 .social-media {
     display: flex;
     align-items: center;
