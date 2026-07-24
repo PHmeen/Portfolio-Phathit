@@ -17,6 +17,16 @@ const portfolioData = {
     // ----------------------------------------------------------------------
     projects: [
         {
+            title: "เว็บไซต์ Portfolio สำหรับนักพัฒนา",
+            category: "frontend",
+            icon: "bx-layout",
+            description: "เว็บไซต์พอร์ตโฟลิโอส่วนตัวพัฒนาด้วย HTML5, CSS3  และ JavaScript ",
+            tags: ["HTML5", "CSS3", "JavaScript", ],
+            github: "https://github.com/PHmeen",
+            demo: "#home",
+            demoText: "หน้าปัจจุบัน"
+        },
+        {
             title: "ระบบจัดการร้านค้าออนไลน์ (E-Commerce)",
             category: "fullstack",
             icon: "bx-shopping-bag",
@@ -26,16 +36,7 @@ const portfolioData = {
             demo: "#projects",
             demoText: "ทดลองใช้งาน"
         },
-        {
-            title: "เว็บไซต์ Portfolio สำหรับนักพัฒนา",
-            category: "frontend",
-            icon: "bx-layout",
-            description: "เว็บไซต์พอร์ตโฟลิโอส่วนตัวที่รองรับทุกอุปกรณ์ ทำงานได้รวดเร็ว พัฒนาด้วย HTML5, CSS3 Glassmorphism และ JavaScript แบบไร้ Framework",
-            tags: ["HTML5", "CSS3", "JavaScript", "Typed.js"],
-            github: "https://github.com/PHmeen",
-            demo: "#home",
-            demoText: "หน้าปัจจุบัน"
-        },
+
         {
             title: "บริการ RESTful API & ระบบยืนยันตัวตน",
             category: "backend",
