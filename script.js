@@ -60,8 +60,8 @@ function renderProjects() {
                         ${tagsHtml}
                     </div>
                     <div class="project-links">
-                        <a href="${project.github}" target="_blank" class="project-link-btn"><i class='bx bxl-github'></i> Code Repo</a>
-                        <a href="${project.demo}" class="project-link-btn"><i class='bx bx-link-external'></i> ${project.demoText || 'Live Demo'}</a>
+                        ${project.github ? `<a href="${project.github}" target="_blank" class="project-link-btn"><i class='bx bxl-github'></i> Code Repo</a>` : ''}
+                        ${project.demo ? `<a href="${project.demo}" class="project-link-btn"><i class='bx bx-link-external'></i> ${project.demoText || 'Live Demo'}</a>` : ''}
                     </div>
                 </div>
             </div>

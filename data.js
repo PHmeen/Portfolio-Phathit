@@ -1,5 +1,5 @@
 // ==========================================================================
-// PORTFOLIO DATA CONFIGURATION (ภาษาไทย)
+// PORTFOLIO DATA CONFIGURATION
 // สามารถแก้ไขข้อความ ผลงาน (Projects) และ ทักษะ (Skills) ได้ที่ไฟล์นี้
 // ==========================================================================
 
@@ -8,19 +8,20 @@ const portfolioData = {
     // 1. TYPED.JS TEXTS (ข้อความตัวหนังสือพิมพ์อัตโนมัติในหน้าแรก)
     // ----------------------------------------------------------------------
     typingStrings: [
-        "Full Stack Web Applications", 
+        "Full Stack Web Development",
+        "Frontend & UI/UX Design",
+        "Backend & Database Architecture"
     ],
 
     // ----------------------------------------------------------------------
     // 2. PROJECTS (ผลงานทั้งหมด)
-    // category: 'fullstack' | 'frontend' | 'backend'
     // ----------------------------------------------------------------------
     projects: [
         {
-            title: "เว็บไซต์ Portfolio ",
+            title: "เว็บไซต์ Portfolio ส่วนตัว",
             icon: "bx-layout",
-            description: "เว็บไซต์พอร์ตโฟลิโอส่วนตัวพัฒนาด้วย HTML5, CSS3  และ JavaScript ",
-            tags: ["HTML5", "CSS3", "JavaScript", ],
+            description: "เว็บไซต์พอร์ตโฟลิโอส่วนตัวแบบ Responsive ทำงานได้รวดเร็ว พัฒนาด้วย HTML5, CSS3 และ JavaScript",
+            tags: ["HTML5", "CSS3", "JavaScript"],
             github: "https://github.com/PHmeen",
             demo: "#home",
             demoText: "หน้าปัจจุบัน"
@@ -28,21 +29,18 @@ const portfolioData = {
         {
             title: "RSP-South-Catering",
             icon: "bx-shopping-bag",
-            description: "แพลตฟอร์มบริหารจัดการร้านค้าออนไลน์แบบ Full Stack มีระบบสมัครสมาชิก/เข้าสู่ระบบ แค็ตตาล็อกสินค้า ตะกร้าสินค้า และหน้า Dashboard สำหรับผู้ดูแลระบบ",
-            tags: ["Node.js", "Express", "MySQL", "Vanilla JS"],
-            github: "https://github.com/PHmeen",
-            demo: "#projects",
-            demoText: "ทดลองใช้งาน"
+            description: "ระบบจองอาหารและเครื่องดื่มสำหรับผู้ใช้บริการห้องประชุม ณ อุทยานวิทยาศาสตร์ภูมิภาค ภาคใต้",
+            tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+            demo: "https://rsp-south-catering.vercel.app",
+            demoText: "ชมเว็บไซต์"
         },
-
         {
-            title: "บริการ RESTful API & ระบบยืนยันตัวตน",
+            title: "STSP INNOMART",
             icon: "bx-cloud-upload",
-            description: "ระบบ Backend REST API สำหรับการยืนยันตัวตนความปลอดภัยสูง รองรับ JWT Token การเข้ารหัสรหัสผ่าน และการตอบกลับข้อมูลในรูปแบบ JSON",
-            tags: ["Node.js", "Express.js", "MongoDB", "Postman"],
-            github: "https://github.com/PHmeen",
-            demo: "#projects",
-            demoText: "เอกสาร API"
+            description: "ระบบดูแลและปรับปรุงสินค้าในเว็บไซต์ STSP INNOMART ",
+            tags: ["PHP", "Node.js", "SQLite3"],
+            demo: "https://stsp-innomart.freehosting.dev/",
+            demoText: "ชมเว็บไซต์"
         }
     ]
 };
