@@ -971,15 +971,24 @@ section {
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES
+   RESPONSIVE MEDIA QUERIES (FULL DEVICE SUPPORT)
    ========================================================================== */
+@media (max-width: 1200px) {
+    section { padding: 6.5rem 6% 3.5rem; }
+    .header { padding: 1.2rem 6%; }
+    .projects-grid { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+}
+
 @media (max-width: 992px) {
     section { padding: 6rem 5% 3rem; }
     .header { padding: 1.2rem 5%; }
     .home { flex-direction: column-reverse; text-align: center; gap: 2.5rem; }
-    .home-content { max-width: 100%; }
+    .home-content { max-width: 100%; display: flex; flex-direction: column; align-items: center; }
+    .home-content h1 { font-size: 3.2rem; }
     .cta-group { justify-content: center; }
     .social-media { justify-content: center; }
+    .about-grid { grid-template-columns: 1fr; }
+    .psu-badge { margin-left: auto; }
 }
 
 @media (max-width: 768px) {
@@ -989,8 +998,9 @@ section {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(10, 15, 29, 0.96);
-        backdrop-filter: blur(20px);
+        background: rgba(10, 15, 29, 0.98);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
         flex-direction: column;
         padding: 2rem;
         gap: 1.5rem;
@@ -998,6 +1008,21 @@ section {
         display: none;
     }
     .navbar.active { display: flex; }
-    .form-row { grid-template-columns: 1fr; }
-    .home-content h1 { font-size: 2.8rem; }
+    .home-content h1 { font-size: 2.5rem; }
+    .home-content h3 { font-size: 1.4rem; }
+    .typing-container { font-size: 1.25rem; min-height: 1.8rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .psu-badge { padding: 6px 12px; font-size: 0.9rem; }
+    .psu-badge img { height: 22px; }
+}
+
+@media (max-width: 480px) {
+    section { padding: 5.5rem 4% 2.5rem; }
+    .home-content h1 { font-size: 2.1rem; }
+    .logo { font-size: 1.5rem; }
+    .project-body { padding: 1.2rem; }
+    .project-banner { height: 150px; }
+    .project-links { flex-direction: column; }
+    #scroll-to-top { bottom: 20px; right: 20px; width: 42px; height: 42px; font-size: 1.2rem; }
 }
