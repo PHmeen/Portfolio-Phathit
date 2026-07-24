@@ -264,11 +264,38 @@ section {
     min-height: 2.2rem;
 }
 
-.home-content p {
+.home-content p.home-description {
     font-size: 1.1rem;
     color: var(--text-muted);
     line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.home-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
     margin-bottom: 2rem;
+}
+
+.home-highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+.home-highlights li i {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.home-highlights li strong {
+    color: var(--primary);
 }
 
 .cta-group {

@@ -17,8 +17,7 @@ const portfolioData = {
     // ----------------------------------------------------------------------
     projects: [
         {
-            title: "เว็บไซต์ Portfolio สำหรับนักพัฒนา",
-            category: "frontend",
+            title: "เว็บไซต์ Portfolio ",
             icon: "bx-layout",
             description: "เว็บไซต์พอร์ตโฟลิโอส่วนตัวพัฒนาด้วย HTML5, CSS3  และ JavaScript ",
             tags: ["HTML5", "CSS3", "JavaScript", ],
@@ -27,8 +26,7 @@ const portfolioData = {
             demoText: "หน้าปัจจุบัน"
         },
         {
-            title: "ระบบจัดการร้านค้าออนไลน์ (E-Commerce)",
-            category: "fullstack",
+            title: "RSP-South-Catering",
             icon: "bx-shopping-bag",
             description: "แพลตฟอร์มบริหารจัดการร้านค้าออนไลน์แบบ Full Stack มีระบบสมัครสมาชิก/เข้าสู่ระบบ แค็ตตาล็อกสินค้า ตะกร้าสินค้า และหน้า Dashboard สำหรับผู้ดูแลระบบ",
             tags: ["Node.js", "Express", "MySQL", "Vanilla JS"],
@@ -39,7 +37,6 @@ const portfolioData = {
 
         {
             title: "บริการ RESTful API & ระบบยืนยันตัวตน",
-            category: "backend",
             icon: "bx-cloud-upload",
             description: "ระบบ Backend REST API สำหรับการยืนยันตัวตนความปลอดภัยสูง รองรับ JWT Token การเข้ารหัสรหัสผ่าน และการตอบกลับข้อมูลในรูปแบบ JSON",
             tags: ["Node.js", "Express.js", "MongoDB", "Postman"],
