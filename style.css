@@ -548,6 +548,12 @@ section {
     font-size: 1.2rem;
 }
 
+.tech-pill img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
 .tech-pill:hover {
     background: rgba(24, 247, 184, 0.12);
     border-color: var(--primary);

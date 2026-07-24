@@ -24,14 +24,13 @@ document.querySelectorAll('.navbar a').forEach(link => {
 // ==========================================================================
 // 2. DYNAMIC TYPED.JS EFFECT
 // ==========================================================================
+const typingStrings = (typeof portfolioData !== 'undefined' && portfolioData.typingStrings)
+    ? portfolioData.typingStrings
+    : ["Full Stack Web Applications", "Node.js & Express APIs", "Responsive UI Interfaces"];
+
 if (document.querySelector(".text") && typeof Typed !== "undefined") {
     new Typed(".text", {
-        strings: [
-            "Full Stack Web Applications",
-            "Node.js & Express APIs",
-            "Responsive UI Interfaces",
-            "ICT Solutions @ PSU"
-        ],
+        strings: typingStrings,
         typeSpeed: 60,
         backSpeed: 40,
         backDelay: 1500,
@@ -40,37 +39,72 @@ if (document.querySelector(".text") && typeof Typed !== "undefined") {
 }
 
 // ==========================================================================
-// 3. PROJECT CATEGORY FILTER
+// 3. RENDER PROJECTS FROM DATA.JS & CATEGORY FILTER
 // ==========================================================================
+const projectsGrid = document.getElementById('projects-grid');
+
+function renderProjects() {
+    if (!projectsGrid || typeof portfolioData === 'undefined' || !portfolioData.projects) return;
+
+    projectsGrid.innerHTML = portfolioData.projects.map(project => {
+        const tagsHtml = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+        return `
+            <div class="project-card" data-category="${project.category}">
+                <div class="project-banner">
+                    <i class='bx ${project.icon || 'bx-code-alt'}'></i>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-desc">${project.description}</p>
+                    <div class="project-tags">
+                        ${tagsHtml}
+                    </div>
+                    <div class="project-links">
+                        <a href="${project.github}" target="_blank" class="project-link-btn"><i class='bx bxl-github'></i> Code Repo</a>
+                        <a href="${project.demo}" class="project-link-btn"><i class='bx bx-link-external'></i> ${project.demoText || 'Live Demo'}</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+// Call render function
+renderProjects();
+
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+function initFilterEvents() {
+    const projectCards = document.querySelectorAll('.project-card');
 
-        const filterValue = btn.getAttribute('data-filter');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
-        projectCards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            if (filterValue === 'all' || category === filterValue) {
-                card.style.display = 'flex';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                }, 50);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 200);
-            }
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filterValue === 'all' || category === filterValue) {
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 200);
+                }
+            });
         });
     });
-});
+}
+
+initFilterEvents();
 
 // ==========================================================================
 // 4. SCROLL TO TOP & ACTIVE NAVIGATION HIGHLIGHT
@@ -133,7 +167,7 @@ if (contactForm) {
 
         // Display success toast message
         if (toastMsg) {
-            toastMsg.textContent = `Thank you, ${name}! Your message has been sent.`;
+            toastMsg.textContent = `ขอบคุณครับคุณ ${name}! ข้อความของคุณถูกส่งเรียบร้อยแล้ว`;
             toastMsg.classList.add('show');
 
             setTimeout(() => {
