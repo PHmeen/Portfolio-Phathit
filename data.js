@@ -8,9 +8,7 @@ const portfolioData = {
     // 1. TYPED.JS TEXTS (ข้อความตัวหนังสือพิมพ์อัตโนมัติในหน้าแรก)
     // ----------------------------------------------------------------------
     typingStrings: [
-        "Full Stack Web Development",
-        "Frontend & UI/UX Design",
-        "Backend & Database Architecture"
+        "Fullstack Web Development"
     ],
 
     // ----------------------------------------------------------------------
@@ -37,7 +35,7 @@ const portfolioData = {
         {
             title: "STSP INNOMART",
             icon: "bx-cloud-upload",
-            description: "ระบบดูแลและปรับปรุงสินค้าในเว็บไซต์ STSP INNOMART ",
+            description: "ระบบดูแลและปรับปรุงสินค้าในเว็บไซต์ STSP INNOMART",
             tags: ["PHP", "Node.js", "SQLite3"],
             demo: "https://stsp-innomart.freehosting.dev/",
             demoText: "ชมเว็บไซต์"

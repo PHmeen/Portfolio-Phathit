@@ -61,7 +61,7 @@ function renderProjects() {
                     </div>
                     <div class="project-links">
                         ${project.github ? `<a href="${project.github}" target="_blank" class="project-link-btn"><i class='bx bxl-github'></i> Code Repo</a>` : ''}
-                        ${project.demo ? `<a href="${project.demo}" class="project-link-btn"><i class='bx bx-link-external'></i> ${project.demoText || 'Live Demo'}</a>` : ''}
+                        ${project.demo ? `<a href="${project.demo}" ${project.demo.startsWith('http') ? 'target="_blank"' : ''} class="project-link-btn"><i class='bx bx-link-external'></i> ${project.demoText || 'Live Demo'}</a>` : ''}
                     </div>
                 </div>
             </div>
