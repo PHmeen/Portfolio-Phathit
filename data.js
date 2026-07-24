@@ -1,44 +1,45 @@
 // ==========================================================================
 // PORTFOLIO DATA CONFIGURATION
-// สามารถแก้ไขข้อความ ผลงาน (Projects) และ ทักษะ (Skills) ได้ที่ไฟล์นี้
+// You can customize texts, projects, and skills in this file
 // ==========================================================================
 
 const portfolioData = {
     // ----------------------------------------------------------------------
-    // 1. TYPED.JS TEXTS (ข้อความตัวหนังสือพิมพ์อัตโนมัติในหน้าแรก)
+    // 1. TYPED.JS TEXTS (Hero section typing animation)
     // ----------------------------------------------------------------------
     typingStrings: [
         "Fullstack Web Development"
     ],
 
     // ----------------------------------------------------------------------
-    // 2. PROJECTS (ผลงานทั้งหมด)
+    // 2. PROJECTS (All Projects)
     // ----------------------------------------------------------------------
     projects: [
         {
-            title: "เว็บไซต์ Portfolio ส่วนตัว",
+            title: "Personal Portfolio Website",
             icon: "bx-layout",
-            description: "เว็บไซต์พอร์ตโฟลิโอส่วนตัวแบบ Responsive ทำงานได้รวดเร็ว พัฒนาด้วย HTML5, CSS3 และ JavaScript",
+            description: "A responsive personal portfolio website built with HTML5, CSS3, and JavaScript.",
             tags: ["HTML5", "CSS3", "JavaScript"],
             github: "https://github.com/PHmeen/Portfolio-Phathit",
             demo: "https://phmeen.github.io/Portfolio-Phathit/",
-            demoText: "ชมเว็บไซต์"
+            demoText: "Live Demo"
         },
         {
             title: "RSP-South-Catering",
             icon: "bx-shopping-bag",
-            description: "ระบบจองอาหารและเครื่องดื่มสำหรับผู้ใช้บริการห้องประชุม ณ อุทยานวิทยาศาสตร์ภูมิภาค ภาคใต้",
+            description: "A meeting room food & beverage reservation system for Southern Regional Science Park.",
             tags: ["Next.js", "TypeScript", "Tailwind CSS"],
             demo: "https://rsp-south-catering.vercel.app",
-            demoText: "ชมเว็บไซต์"
+            demoText: "Live Demo"
         },
         {
             title: "STSP INNOMART",
             icon: "bx-cloud-upload",
-            description: "ระบบดูแลและปรับปรุงสินค้าในเว็บไซต์ STSP INNOMART",
+            description: "A product management and update system for the STSP INNOMART platform.",
             tags: ["PHP", "Node.js", "SQLite3"],
             demo: "https://stsp-innomart.freehosting.dev/",
-            demoText: "ชมเว็บไซต์"
+            demoText: "Live Demo"
         }
     ]
 };
+
