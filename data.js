@@ -36,7 +36,7 @@ const portfolioData = {
             title: "STSP INNOMART",
             icon: "bx-cloud-upload",
             description: "A product management and update system for the STSP INNOMART platform.",
-            tags: ["PHP", "Node.js", "SQLite3"],
+            tags: ["PHP", "SQLite3"],
             demo: "https://stsp-innomart.freehosting.dev/",
             demoText: "Live Demo"
         }
