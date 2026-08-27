@@ -1,45 +1,32 @@
-# Portfolio - พาทิศ หนูดำ (มีน)
+# React + TypeScript + Vite
 
-สวัสดีครับ เว็บนี้เป็นเว็บ Portfolio ส่วนตัวของผมเอง **พาทิศ หนูดำ (มีน)** นักศึกษาชั้นปีที่ 4 สาขาเทคโนโลยีสารสนเทศและการสื่อสาร (ICT) มหาวิทยาลัยสงขลานครินทร์ รวบรวมข้อมูลส่วนตัว ทักษะด้านการพัฒนาเว็บ และผลงานที่เคยทำครับ
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
----
+Currently, two official plugins are available:
 
-## 🛠️ เทคโนโลยีที่ใช้ทำเว็บนี้
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-- **HTML5 & CSS3:** เขียนโครงสร้างและแต่งสไตล์เอง เน้นดีไซน์โทนเข้ม (Dark Mode) และรองรับการดูผ่านมือถือและคอมพิวเตอร์
-- **JavaScript (ES6+):** ใช้จัดการการทำงานของเว็บ Effect ตัวหนังสือพิมพ์อัตโนมัติ (Typed.js) และดึงข้อมูลมาแสดงผล
-- **data.js:** แยกไฟล์ข้อมูลโปรเจกต์ต่างหาก เพื่อให้แก้ไขหรือเพิ่มผลงานใหม่ได้ง่าย
+## React Compiler
 
----
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 📂 โครงสร้างไฟล์ในโปรเจกต์
+## Expanding the Oxlint configuration
 
-```text
-Portfolio-Phathit/
-├── index.html          # หน้าเว็บหลัก
-├── style.css           # ไฟล์แต่งสไตล์เว็บ (CSS)
-├── data.js             # ไฟล์เก็บข้อมูลผลงานและรายละเอียดต่างๆ
-├── script.js           # ไฟล์ควบคุมการทำงานของหน้าเว็บ
-├── imgportfolio/       # โฟลเดอร์เก็บรูปภาพในเว็บ
-└── README.md           # ไฟล์แนะนำโปรเจกต์
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
 
----
-
-## 💻 วิธีเปิดดูบนเครื่อง (Local Setup)
-
-1. Clone โปรเจกต์ลงเครื่อง:
-   ```bash
-   git clone https://github.com/PHmeen/Portfolio-Phathit.git
-   ```
-2. เปิดไฟล์ `index.html` ผ่านเว็บเบราว์เซอร์ หรือเปิดด้วย Live Server ใน VS Code ได้เลยครับ
-
----
-
-## 📬 ช่องทางการติดต่อ
-
-- **ชื่อ:** นาย พาทิศ หนูดำ (มีน)
-- **คณะ / สาขา:** ICT มหาวิทยาลัยสงขลานครินทร์ (วิทยาเขตหาดใหญ่)
-- **Email:** mean1940@gmail.com
-- **Phone:** 097-159-0552
-- **GitHub:** [PHmeen](https://github.com/PHmeen)
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
