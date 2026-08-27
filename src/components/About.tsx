@@ -2,7 +2,7 @@
 // ABOUT COMPONENT (ส่วนแสดงข้อมูลส่วนตัวและการ์ดติดต่อ)
 // ==========================================================================
 
-import { User, Mail, Phone, MapPin, Calendar, Award } from 'lucide-react';
+import { User, Mail, Phone, Calendar, Award } from 'lucide-react';
 
 export const About: React.FC = () => {
     return (
@@ -54,15 +54,12 @@ export const About: React.FC = () => {
                 </div>
 
                 {/* การ์ด 2: ข้อมูลติดต่อ (Contact Info Glass Card) */}
-                <div className="glass-card rounded-2xl p-8">
-                    <h3 className="text-2xl font-bold text-white mb-3 flex items-center gap-3">
+                <div className="glass-card rounded-2xl p-8 flex flex-col">
+                    <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
                         <Phone className="text-[#18f7b8]" size={24} />
                         <span>Contact Info</span>
                     </h3>
-                    <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                        I am open to job opportunities, internships, and freelance projects. Let's build something great together!
-                    </p>
-                    <div className="space-y-4">
+                    <div className="flex-1 flex flex-col justify-center space-y-8">
                         {/* อีเมล */}
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 rounded-xl bg-[#18f7b8]/10 border border-[#18f7b8]/25 text-[#18f7b8] flex items-center justify-center shrink-0">
@@ -86,19 +83,6 @@ export const About: React.FC = () => {
                                 <a href="tel:0971590552" className="text-white font-semibold text-base hover:text-[#18f7b8] transition-colors">
                                     097-159-0552
                                 </a>
-                            </div>
-                        </div>
-
-                        {/* ที่อยู่/มหาวิทยาลัย */}
-                        <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-xl bg-[#18f7b8]/10 border border-[#18f7b8]/25 text-[#18f7b8] flex items-center justify-center shrink-0">
-                                <MapPin size={22} />
-                            </div>
-                            <div>
-                                <span className="block text-xs uppercase tracking-wider text-slate-500 font-medium">Location</span>
-                                <p className="text-white font-semibold text-base mb-0">
-                                    Prince of Songkla University, Hat Yai, Thailand
-                                </p>
                             </div>
                         </div>
                     </div>
