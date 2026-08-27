@@ -24,7 +24,7 @@ export const portfolioData: PortfolioData = {
             category: "frontend",
             image: "imgportfolio/portfolio.png",
             icon: "bx-layout",
-            description: "A responsive modern glassmorphism portfolio website built with HTML5, CSS3, and JavaScript.",
+            description: "A responsive modern glassmorphism portfolio website built with React, TypeScript, and Tailwind CSS.",
             tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
             github: "https://github.com/PHmeen/Portfolio-Phathit",
             demo: "https://phmeen.github.io/Portfolio-Phathit/",

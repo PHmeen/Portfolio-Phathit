@@ -46,7 +46,7 @@ export const Education: React.FC = () => {
                 <div className="glass-card rounded-2xl p-6 relative">
                     <div className="absolute -left-[31px] top-6 w-4 h-4 rounded-full bg-[#38bdf8] border-4 border-[#0a0f1d] shadow-[0_0_10px_#38bdf8]" />
                     <span className="inline-block text-xs font-bold text-[#38bdf8] uppercase tracking-wider mb-2">
-                        2021 - Present
+                        2022 - Present
                     </span>
                     <h3 className="text-xl font-bold text-white mb-1 flex items-center gap-2">
                         <GraduationCap size={20} className="text-[#38bdf8]" />
