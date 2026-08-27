@@ -129,16 +129,33 @@
             </div>
 
             <!-- Contact Information -->
-            <div class="glass-card">
-                <h3 class="card-title"><i class='bx bx-map-pin'></i> Contact Info</h3>
-                <div class="info-list">
-                    <div class="contact-link-item">
-                        <i class='bx bx-phone-call'></i>
-                        <a href="tel:0971590552">097-159-0552</a>
-                    </div>
-                    <div class="contact-link-item">
+            <div class="glass-card contact-info-card">
+                <h3 class="card-title"><i class='bx bx-phone-call'></i> Contact Info</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                    I am open to job opportunities, internships, and freelance projects. Let's build something great
+                    together!
+                </p>
+                <div class="contact-details">
+                    <div class="contact-item">
                         <i class='bx bx-envelope'></i>
-                        <a href="mailto:mean1940@gmail.com">mean1940@gmail.com</a>
+                        <div>
+                            <span>Email</span>
+                            <a href="mailto:mean1940@gmail.com">mean1940@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class='bx bx-phone'></i>
+                        <div>
+                            <span>Phone</span>
+                            <a href="tel:0971590552">097-159-0552</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class='bx bx-map'></i>
+                        <div>
+                            <span>Location</span>
+                            <p>Prince of Songkla University, Hat Yai, Thailand</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -234,8 +251,15 @@
     <section class="projects-section" id="projects">
         <div class="title-container">
             <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+            <p class="section-subtitle">Showcase of My Web Applications & Development Work</p>
         </div>
 
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+            <button class="filter-btn" data-filter="frontend">Frontend</button>
+            <button class="filter-btn" data-filter="backend">Backend & DB</button>
+        </div>
 
         <div class="projects-grid" id="projects-grid">
             <!-- Dynamically generated from data.js -->
@@ -270,6 +294,8 @@
             </div>
         </div>
     </section>
+
+
 
     <!-- FOOTER -->
     <footer class="footer">
