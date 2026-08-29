@@ -1,18 +1,23 @@
 import { Briefcase, GraduationCap, MapPin } from 'lucide-react';
+import type { TranslationStructure } from '../data/translations';
 
-export const Education: React.FC = () => {
+interface EducationProps {
+    t: TranslationStructure;
+}
+
+export const Education: React.FC<EducationProps> = ({ t }) => {
     return (
         <section id="education" className="py-24 px-4 sm:px-[9%] relative">
             <div className="text-center w-full mb-14">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/25 text-[var(--primary)] text-xs font-extrabold tracking-widest mb-3 shadow-[0_0_15px_var(--primary-glow)]">
                     <Briefcase size={14} />
-                    <span>MY JOURNEY</span>
+                    <span>{t.education.badge}</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
-                    Education & <span className="gradient-text">Experience</span>
+                    {t.education.titlePart1} <span className="gradient-text">{t.education.titlePart2}</span>
                 </h2>
                 <p className="text-slate-400 text-base max-w-xl mx-auto">
-                    My Academic Milestones and Professional Internship Timeline
+                    {t.education.subtitle}
                 </p>
             </div>
 
@@ -22,7 +27,7 @@ export const Education: React.FC = () => {
 
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span className="inline-block text-xs font-extrabold text-[var(--primary)] uppercase tracking-wider px-3 py-1 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/30">
-                            Internship Experience
+                            {t.education.internBadge}
                         </span>
                     </div>
 
@@ -30,16 +35,16 @@ export const Education: React.FC = () => {
                         <div className="w-8 h-8 rounded-lg bg-[var(--primary)]/10 border border-[var(--primary)]/30 text-[var(--primary)] flex items-center justify-center">
                             <Briefcase size={18} />
                         </div>
-                        <span>Full Stack Developer Intern</span>
+                        <span>{t.education.internRole}</span>
                     </h3>
 
                     <h4 className="text-sm font-medium text-slate-300 mb-4 flex items-center gap-1.5">
-                        <MapPin size={14} className="text-[var(--primary)]" />
-                        <span>Southern Regional Science Park, Prince of Songkla University</span>
+                        <MapPin size={14} className="text-[var(--primary)] shrink-0" />
+                        <span>{t.education.internLoc}</span>
                     </h4>
 
                     <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                        Collaborated on developing web applications, designing responsive Frontend UIs, managing SQLite / PostgreSQL backend databases, and creating reservation tools for science park events.
+                        {t.education.internDesc}
                     </p>
 
                     <div className="flex flex-wrap gap-2">
@@ -55,7 +60,7 @@ export const Education: React.FC = () => {
 
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span className="inline-block text-xs font-extrabold text-[var(--accent)] uppercase tracking-wider px-3 py-1 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/30">
-                            2022 - Present (Senior Year)
+                            {t.education.eduBadge}
                         </span>
                     </div>
 
@@ -63,16 +68,16 @@ export const Education: React.FC = () => {
                         <div className="w-8 h-8 rounded-lg bg-[var(--accent)]/10 border border-[var(--accent)]/30 text-[var(--accent)] flex items-center justify-center">
                             <GraduationCap size={20} />
                         </div>
-                        <span>B.Sc. in Information and Communication Technology (ICT)</span>
+                        <span>{t.education.eduDegree}</span>
                     </h3>
 
                     <h4 className="text-sm font-medium text-slate-300 mb-4 flex items-center gap-1.5">
-                        <MapPin size={14} className="text-[var(--accent)]" />
-                        <span>Prince of Songkla University (Hat Yai Campus)</span>
+                        <MapPin size={14} className="text-[var(--accent)] shrink-0" />
+                        <span>{t.education.eduLoc}</span>
                     </h4>
 
                     <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/5 border border-white/10 text-sm text-slate-200">
-                        <span className="text-slate-400 font-semibold">Cumulative GPAX:</span>
+                        <span className="text-slate-400 font-semibold">{t.education.gpaxLabel}</span>
                         <span className="text-[var(--primary)] font-black text-lg">3.03</span>
                     </div>
                 </div>

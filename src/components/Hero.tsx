@@ -1,20 +1,26 @@
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import { Code, FileText, Mail, Phone, Sparkles, FolderCheck, Award, Briefcase } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import type { TranslationStructure } from '../data/translations';
 
 interface HeroProps {
     onCopy: (text: string, label: string) => void;
+    t: TranslationStructure;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onCopy }) => {
+export const Hero: React.FC<HeroProps> = ({ onCopy, t }) => {
     const el = useRef<HTMLSpanElement>(null);
+    const typedRef = useRef<Typed | null>(null);
 
     useEffect(() => {
         if (!el.current) return;
 
-        const typed = new Typed(el.current, {
-            strings: portfolioData.typingStrings,
+        if (typedRef.current) {
+            typedRef.current.destroy();
+        }
+
+        typedRef.current = new Typed(el.current, {
+            strings: t.hero.typingStrings,
             typeSpeed: 60,
             backSpeed: 40,
             backDelay: 1600,
@@ -22,14 +28,16 @@ export const Hero: React.FC<HeroProps> = ({ onCopy }) => {
         });
 
         return () => {
-            typed.destroy();
+            if (typedRef.current) {
+                typedRef.current.destroy();
+            }
         };
-    }, []);
+    }, [t.hero.typingStrings]);
 
     const stats = [
-        { icon: Award, label: 'GPAX', value: '3.03' },
-        { icon: FolderCheck, label: 'Projects Built', value: '3+' },
-        { icon: Briefcase, label: 'Internship Exp.', value: '1' }
+        { icon: Award, label: t.hero.stats.gpaxLabel, value: '3.03' },
+        { icon: FolderCheck, label: t.hero.stats.projectsLabel, value: '3+' },
+        { icon: Briefcase, label: t.hero.stats.internshipLabel, value: '1' }
     ];
 
     return (
@@ -38,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ onCopy }) => {
                 <div className="max-w-2xl flex flex-col items-center lg:items-start text-center lg:text-left">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/30 text-[var(--primary)] text-xs font-extrabold tracking-widest mb-6 shadow-[0_0_20px_var(--primary-glow)]">
                         <Sparkles size={14} className="animate-spin-slow" />
-                        <span>FULL STACK DEVELOPER</span>
+                        <span>{t.hero.roleBadge}</span>
                     </div>
 
                     <h1 className="text-4xl sm:text-6xl font-black text-white mb-4 tracking-tight leading-none">
@@ -46,12 +54,12 @@ export const Hero: React.FC<HeroProps> = ({ onCopy }) => {
                     </h1>
 
                     <div className="text-xl sm:text-2xl font-medium text-slate-300 mb-6 min-h-[2.5rem] flex items-center">
-                        <span>I am passionate about&nbsp;</span>
+                        <span>{t.hero.passionateAbout}&nbsp;</span>
                         <span ref={el} className="gradient-text font-bold"></span>
                     </div>
 
                     <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
-                        A 4th-year ICT student at Prince of Songkla University specializing in full-stack web engineering, modern reactive user interfaces, and clean database architectures.
+                        {t.hero.bio}
                     </p>
 
                     <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
@@ -60,7 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ onCopy }) => {
                             className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[var(--primary)] text-[#051410] font-extrabold text-base shadow-[0_0_25px_var(--primary-glow)] hover:-translate-y-1 hover:shadow-[0_0_35px_var(--primary-glow)] transition-all duration-300"
                         >
                             <Code size={18} />
-                            <span>Explore Projects</span>
+                            <span>{t.hero.exploreBtn}</span>
                         </a>
                         <a
                             href="Resume_Phathit.pdf"
@@ -69,7 +77,7 @@ export const Hero: React.FC<HeroProps> = ({ onCopy }) => {
                             className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-white/5 text-white font-bold text-base border border-white/15 hover:bg-white/15 hover:border-[var(--primary)] hover:text-[var(--primary)] hover:-translate-y-1 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
                         >
                             <FileText size={18} />
-                            <span>View Resume</span>
+                            <span>{t.hero.resumeBtn}</span>
                         </a>
                     </div>
 
@@ -119,7 +127,7 @@ export const Hero: React.FC<HeroProps> = ({ onCopy }) => {
 
                         <div className="absolute -bottom-2 -left-4 glass-panel px-4 py-2 rounded-2xl border border-white/20 shadow-xl flex items-center gap-2.5 animate-float" style={{ animationDelay: '1s' }}>
                             <span className="w-3 h-3 rounded-full bg-[var(--primary)] animate-ping" />
-                            <span className="text-xs font-bold text-white uppercase tracking-wider">Available for Work</span>
+                            <span className="text-xs font-bold text-white uppercase tracking-wider">{t.hero.availableBadge}</span>
                         </div>
                     </div>
                 </div>

@@ -14,14 +14,23 @@ import { ScrollProgress } from './components/ScrollProgress';
 import { Toast } from './components/Toast';
 import { ProjectModal } from './components/ProjectModal';
 import type { Project } from './types/portfolio';
+import { translations, type Language } from './data/translations';
 
 function App() {
+  const [lang, setLang] = useState<Language>('en');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
+  const t = translations[lang];
+
+  const handleToggleLang = () => {
+    setLang((prev) => (prev === 'en' ? 'th' : 'en'));
+  };
+
   const handleCopy = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
-    setToastMessage(`${label} copied to clipboard! ✨`);
+    const successMsg = lang === 'th' ? `คัดลอก ${label} เรียบร้อยแล้ว! ✨` : `${label} copied to clipboard! ✨`;
+    setToastMessage(successMsg);
     setTimeout(() => {
       setToastMessage(null);
     }, 3000);
@@ -32,21 +41,22 @@ function App() {
       <ScrollProgress />
       <GlassBackground />
       <CustomCursor />
-      <Navbar />
+      <Navbar lang={lang} onToggleLang={handleToggleLang} t={t} />
 
       <main className="relative z-10">
-        <Hero onCopy={handleCopy} />
-        <About onCopy={handleCopy} />
-        <Skills />
-        <Projects onSelectProject={(project) => setSelectedProject(project)} />
-        <Education />
+        <Hero onCopy={handleCopy} t={t} />
+        <About onCopy={handleCopy} t={t} />
+        <Skills t={t} />
+        <Projects onSelectProject={(project) => setSelectedProject(project)} t={t} />
+        <Education t={t} />
       </main>
 
-      <Footer />
+      <Footer t={t} />
 
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
+        t={t}
       />
 
       <Toast

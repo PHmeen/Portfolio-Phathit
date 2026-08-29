@@ -1,7 +1,12 @@
 import { Zap, Laptop, Server, Wrench, Code2, Lightbulb, TrendingUp, Users, Terminal } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import type { TranslationStructure } from '../data/translations';
 
-export const Skills: React.FC = () => {
+interface SkillsProps {
+    t: TranslationStructure;
+}
+
+export const Skills: React.FC<SkillsProps> = ({ t }) => {
     const getCategoryIcon = (iconName: string) => {
         switch (iconName) {
             case 'laptop':
@@ -13,6 +18,13 @@ export const Skills: React.FC = () => {
             default:
                 return <Zap className="text-[var(--primary)]" size={22} />;
         }
+    };
+
+    const getCategoryTitle = (idx: number, fallback: string) => {
+        if (idx === 0) return t.skills.categoryFrontend;
+        if (idx === 1) return t.skills.categoryBackend;
+        if (idx === 2) return t.skills.categoryTools;
+        return fallback;
     };
 
     const getSkillIcon = (skillName: string) => {
@@ -29,13 +41,13 @@ export const Skills: React.FC = () => {
             <div className="text-center w-full mb-14">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/25 text-[var(--primary)] text-xs font-extrabold tracking-widest mb-3 shadow-[0_0_15px_var(--primary-glow)]">
                     <Zap size={14} />
-                    <span>MY TECH STACK</span>
+                    <span>{t.skills.badge}</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">
-                    Technical <span className="gradient-text">Skills & Arsenal</span>
+                    {t.skills.titlePart1} <span className="gradient-text">{t.skills.titlePart2}</span>
                 </h2>
                 <p className="text-slate-400 text-base max-w-xl mx-auto">
-                    Modern Frameworks, Server Architectures & Tools I Leverage Daily
+                    {t.skills.subtitle}
                 </p>
             </div>
 
@@ -47,7 +59,7 @@ export const Skills: React.FC = () => {
                                 <div className="w-10 h-10 rounded-xl bg-[var(--primary)]/10 border border-[var(--primary)]/30 flex items-center justify-center">
                                     {getCategoryIcon(category.icon)}
                                 </div>
-                                <span>{category.title}</span>
+                                <span>{getCategoryTitle(idx, category.title)}</span>
                             </div>
 
                             <div className="flex flex-wrap gap-2.5">

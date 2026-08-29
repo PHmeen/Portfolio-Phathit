@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
+import type { TranslationStructure } from '../data/translations';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+    t: TranslationStructure;
+}
+
+export const Footer: React.FC<FooterProps> = ({ t }) => {
     const [showScrollTop, setShowScrollTop] = useState(false);
 
     useEffect(() => {
@@ -23,13 +28,12 @@ export const Footer: React.FC = () => {
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
                     <div>
                         <p className="text-slate-300 text-sm font-medium">
-                            &copy; {new Date().getFullYear()} <span className="text-white font-bold">Phathit Nudam</span> — Built with React 19, TypeScript & Tailwind CSS
+                            &copy; {new Date().getFullYear()} <span className="text-white font-bold">Phathit Nudam</span> — {t.footer.builtWith}
                         </p>
                         <p className="text-slate-400 text-xs mt-1">
-                            Designed with modern Glassmorphism UI tokens & responsive interaction
+                            {t.footer.designedWith}
                         </p>
                     </div>
-
                 </div>
             </footer>
 
