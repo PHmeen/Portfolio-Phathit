@@ -10,7 +10,9 @@ export interface Project {
     category: 'fullstack' | 'frontend' | 'backend';          // หมวดหมู่โปรเจกต์
     image?: string;                                         // รูปภาพพรีวิวผลงาน
     icon?: string;                                          // ไอคอนสำรองกรณีไม่มีรูป
-    description: string;                                    // คำอธิบายโปรเจกต์
+    description: string;                                    // คำอธิบายโปรเจกต์สั้น
+    longDescription?: string;                               // คำอธิบายโปรเจกต์โดยละเอียด
+    features?: string[];                                    // รายการฟีเจอร์เด่น
     tags: string[];                                         // แท็กเทคโนโลยีที่ใช้ (เช่น React, Node.js)
     github?: string;                                        // ลิงก์ไปยัง GitHub Repository
     demo?: string;                                          // ลิงก์ไปยัง Live Demo เว็บไซต์จริง

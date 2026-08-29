@@ -1,7 +1,4 @@
-// ==========================================================================
-// MAIN APP COMPONENT (คอมโพเนนต์หลักที่นำคอมโพเนนต์ย่อยทั้งหมดมารวมกัน)
-// ==========================================================================
-
+import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -10,32 +7,52 @@ import { Projects } from './components/Projects';
 import { Education } from './components/Education';
 import { Footer } from './components/Footer';
 
+// Interactive Glassmorphism Components
+import { GlassBackground } from './components/GlassBackground';
+import { CustomCursor } from './components/CustomCursor';
+import { ScrollProgress } from './components/ScrollProgress';
+import { Toast } from './components/Toast';
+import { ProjectModal } from './components/ProjectModal';
+import type { Project } from './types/portfolio';
+
 function App() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const handleCopy = (text: string, label: string) => {
+    navigator.clipboard.writeText(text);
+    setToastMessage(`${label} copied to clipboard! ✨`);
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 3000);
+  };
+
   return (
-    <div className="min-h-screen bg-[#0a0f1d] text-slate-100 selection:bg-[#18f7b8] selection:text-[#051410]">
-      {/* แถบเมนูด้านบน */}
+    <div className="min-h-screen bg-[#060a14] text-slate-100 selection:bg-[var(--primary)] selection:text-[#040814] relative overflow-x-hidden">
+      <ScrollProgress />
+      <GlassBackground />
+      <CustomCursor />
       <Navbar />
 
-      {/* เนื้อหาหลักแต่ละส่วนของเว็บไซต์ */}
-      <main>
-        {/* ส่วนต้อนรับต้อนรับหลัก (Hero Section) */}
-        <Hero />
-
-        {/* ส่วนข้อมูลส่วนตัวและการ์ดติดต่อ (About Me Section) */}
-        <About />
-
-        {/* ส่วนรายการทักษะความสามารถ (Skills Section) */}
+      <main className="relative z-10">
+        <Hero onCopy={handleCopy} />
+        <About onCopy={handleCopy} />
         <Skills />
-
-        {/* ส่วนรายการโปรเจกต์ผลงาน (Featured Projects Section) */}
-        <Projects />
-
-        {/* ส่วนประวัติการศึกษาและประสบการณ์ (Education Section) */}
+        <Projects onSelectProject={(project) => setSelectedProject(project)} />
         <Education />
       </main>
 
-      {/* ส่วนท้ายเว็บไซต์ (Footer Section) */}
       <Footer />
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
+
+      <Toast
+        message={toastMessage}
+        onClose={() => setToastMessage(null)}
+      />
     </div>
   );
 }

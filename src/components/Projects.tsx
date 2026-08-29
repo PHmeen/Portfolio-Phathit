@@ -1,13 +1,14 @@
-// ==========================================================================
-// PROJECTS COMPONENT (คอมโพเนนต์แสดงรายการผลงานดีไซน์กรอบ Browser Window Shell พร้อมไอคอนเทคโนโลยี)
-// ==========================================================================
-
-import { FolderOpen, ExternalLink, Code, Lock } from 'lucide-react';
+import { FolderOpen, ExternalLink, Code, Lock, Maximize2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import type { Project } from '../types/portfolio';
 
-export const Projects: React.FC = () => {
-    // ฟังก์ชันดึง URL ไอคอนประจำเทคโนโลยีอัตโนมัติ
+interface ProjectsProps {
+    onSelectProject: (project: Project) => void;
+}
+
+export const Projects: React.FC<ProjectsProps> = ({ onSelectProject }) => {
+    const projects = portfolioData.projects;
+
     const getTechIconUrl = (tagName: string): string | null => {
         const name = tagName.toLowerCase();
         if (name.includes('react')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg';
@@ -25,87 +26,96 @@ export const Projects: React.FC = () => {
     };
 
     return (
-        <section id="projects" className="py-24 px-[9%] flex flex-col items-center">
-            {/* ส่วนหัวข้อหลัก Featured Projects */}
+        <section id="projects" className="py-24 px-4 sm:px-[9%] flex flex-col items-center relative">
             <div className="text-center w-full mb-14">
-                {/* ป้ายเรืองแสง MY PORTFOLIO */}
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#18f7b8]/10 border border-[#18f7b8]/25 text-[#18f7b8] text-xs font-bold tracking-widest mb-3 shadow-[0_0_15px_rgba(24,247,184,0.15)]">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/25 text-[var(--primary)] text-xs font-extrabold tracking-widest mb-3 shadow-[0_0_15px_var(--primary-glow)]">
                     <FolderOpen size={14} />
                     <span>MY PORTFOLIO</span>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight">
+                <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-3 tracking-tight">
                     Featured <span className="gradient-text">Projects</span>
                 </h2>
                 <p className="text-slate-400 text-base max-w-xl mx-auto leading-relaxed">
-                    A collection of web applications built with modern technologies & clean architecture
+                    High-performance web applications built with modern frameworks & robust backends
                 </p>
             </div>
 
-            {/* ตารางแสดงการ์ดผลงานทั้งหมด (Projects Grid) */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
-                {portfolioData.projects.map((project: Project) => (
+                {projects.map((project: Project) => (
                     <div
                         key={project.id}
-                        className="glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-[#18f7b8]/50 hover:shadow-[0_12px_40px_rgba(24,247,184,0.18)] transition-all duration-300 relative"
+                        className="glass-card rounded-3xl overflow-hidden flex flex-col group hover:border-[var(--primary)]/60 hover:shadow-[0_16px_50px_var(--primary-glow)] transition-all duration-300 relative"
                     >
-                        {/* กรอบพรีวิวสไตล์หน้าต่างเบราว์เซอร์ (Browser Shell Mockup Frame) */}
                         <div className="w-full bg-[#0d1424] border-b border-white/10 flex flex-col overflow-hidden">
-                            {/* แถบด้านบนเบราว์เซอร์ (macOS Dots Window Header) */}
-                            <div className="h-9 px-4 bg-[#080d18] border-b border-white/10 flex items-center justify-between">
-                                {/* ปุ่มจุด 3 สี macOS */}
+                            <div className="h-10 px-4 bg-[#080d18] border-b border-white/10 flex items-center justify-between">
                                 <div className="flex items-center gap-1.5">
                                     <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] inline-block shadow-[0_0_8px_rgba(255,95,86,0.4)]" />
                                     <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] inline-block shadow-[0_0_8px_rgba(255,189,46,0.4)]" />
                                     <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] inline-block shadow-[0_0_8px_rgba(39,201,63,0.4)]" />
                                 </div>
-                                {/* ช่องที่อยู่ URL แบบ SSL Secured Badge */}
-                                <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-[11px] text-slate-300 font-mono tracking-tight truncate max-w-[210px] group-hover:border-[#18f7b8]/30 transition-colors">
-                                    <Lock size={10} className="text-[#18f7b8] shrink-0" />
+                                <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-[11px] text-slate-300 font-mono tracking-tight truncate max-w-[200px] group-hover:border-[var(--primary)]/40 transition-colors">
+                                    <Lock size={10} className="text-[var(--primary)] shrink-0" />
                                     <span className="truncate">{project.demo ? project.demo.replace('https://', '').replace(/\/$/, '') : 'localhost:3000'}</span>
                                 </div>
-                                <div className="w-8" />
+                                <button
+                                    onClick={() => onSelectProject(project)}
+                                    className="p-1 text-slate-400 hover:text-[var(--primary)] transition-colors"
+                                    title="Expand project details"
+                                >
+                                    <Maximize2 size={13} />
+                                </button>
                             </div>
 
-                            {/* ตัวรูปภาพพรีวิวภายในกรอบเบราว์เซอร์ (Browser Content Body) */}
-                            <div className="relative h-52 sm:h-56 w-full overflow-hidden bg-[#0a0f1d] flex items-center justify-center p-3">
+                            <div
+                                onClick={() => onSelectProject(project)}
+                                className="relative h-52 sm:h-56 w-full overflow-hidden bg-[#0a0f1d] flex items-center justify-center p-3 cursor-pointer group/img"
+                            >
                                 {project.image ? (
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.4)] border border-white/5"
+                                        className="w-full h-full object-contain rounded-xl group-hover/img:scale-105 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.4)] border border-white/5"
                                         onError={(e) => {
                                             e.currentTarget.style.display = 'none';
-                                            if (e.currentTarget.nextElementSibling) {
-                                                (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
-                                            }
                                         }}
                                     />
-                                ) : null}
+                                ) : (
+                                    <Code size={48} className="text-[var(--primary)]" />
+                                )}
 
-                                {/* ไอคอนสำรองกรณีไม่มีรูปภาพ */}
-                                <div className={`flex items-center justify-center ${project.image ? 'hidden' : 'flex'}`}>
-                                    <Code size={48} className="text-[#18f7b8]" />
+                                <div className="absolute inset-0 bg-black/50 backdrop-blur-xs opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                    <div className="px-4 py-2 rounded-full bg-[var(--primary)] text-[#051410] font-bold text-xs flex items-center gap-2 shadow-lg">
+                                        <Maximize2 size={14} />
+                                        <span>Quick View Details</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* ส่วนเนื้อหารายละเอียดของโปรเจกต์ (Project Body) */}
                         <div className="p-6 flex flex-col flex-grow">
-                            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#18f7b8] transition-colors leading-snug">
-                                {project.title}
-                            </h3>
-                            <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                            <div className="flex items-center justify-between gap-2 mb-2">
+                                <h3
+                                    onClick={() => onSelectProject(project)}
+                                    className="text-xl font-extrabold text-white group-hover:text-[var(--primary)] transition-colors leading-snug cursor-pointer"
+                                >
+                                    {project.title}
+                                </h3>
+                                <span className="text-[10px] uppercase font-extrabold tracking-wider px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[var(--primary)] shrink-0">
+                                    {project.category}
+                                </span>
+                            </div>
+
+                            <p className="text-[#94a3b8] text-sm leading-relaxed mb-6 flex-grow">
                                 {project.description}
                             </p>
 
-                            {/* แท็กเทคโนโลยีที่ใช้ พร้อมไอคอนประกอบ (Tech Tags with Icons) */}
                             <div className="flex flex-wrap gap-2 mb-6">
                                 {project.tags.map((tag, tIdx) => {
                                     const iconUrl = getTechIconUrl(tag);
                                     return (
                                         <span
                                             key={tIdx}
-                                            className="inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-medium group-hover:border-[#18f7b8]/30 group-hover:text-[#18f7b8] transition-all duration-200"
+                                            className="inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-slate-300 font-medium group-hover:border-[var(--primary)]/30 group-hover:text-white transition-all duration-200"
                                         >
                                             {iconUrl && (
                                                 <img
@@ -121,27 +131,23 @@ export const Projects: React.FC = () => {
                                 })}
                             </div>
 
-                            {/* ปุ่มลิงก์ไปยัง GitHub และ Live Demo */}
                             <div className="flex items-center gap-3 mt-auto pt-2">
-                                {project.github && (
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 text-white font-semibold text-xs hover:bg-[#18f7b8] hover:text-[#051410] hover:border-[#18f7b8] transition-all duration-200"
-                                    >
-                                        <Code size={15} />
-                                        <span>Code Repo</span>
-                                    </a>
-                                )}
+                                <button
+                                    onClick={() => onSelectProject(project)}
+                                    className="py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 text-slate-300 font-semibold text-xs hover:bg-white/15 hover:text-white transition-all flex items-center gap-1.5"
+                                    title="View full specs"
+                                >
+                                    <Maximize2 size={14} />
+                                    <span className="hidden sm:inline">Details</span>
+                                </button>
                                 {project.demo && (
                                     <a
                                         href={project.demo}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#18f7b8]/10 border border-[#18f7b8]/30 text-[#18f7b8] font-semibold text-xs hover:bg-[#18f7b8] hover:text-[#051410] shadow-[0_0_15px_rgba(24,247,184,0.15)] transition-all duration-200"
+                                        className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[var(--primary)] text-[#051410] font-extrabold text-xs shadow-[0_0_20px_var(--primary-glow)] hover:scale-[1.02] transition-all duration-200"
                                     >
-                                        <ExternalLink size={15} />
+                                        <ExternalLink size={14} />
                                         <span>{project.demoText || 'Live Demo'}</span>
                                     </a>
                                 )}
