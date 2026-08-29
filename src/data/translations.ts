@@ -181,7 +181,7 @@ export const translations: Record<Language, TranslationStructure> = {
                     description: "A product catalog and inventory management portal for STSP INNOMART.",
                     longDescription: "An inventory control and product management web portal developed with PHP and SQLite3 to catalog products and manage stock updates for the STSP INNOMART platform.",
                     features: [
-                        "Product CRUD management and stock tracking",
+                        "Product CRUD management",
                         "Fast database operations with SQLite3",
                         "Admin authentication and inventory update panel"
                     ]
@@ -297,7 +297,7 @@ export const translations: Record<Language, TranslationStructure> = {
                     description: "ระบบจัดการรายการสินค้าและอัปเดตสต็อกสินค้า สำหรับแพลตฟอร์ม STSP INNOMART",
                     longDescription: "ระบบจัดการคลังสินค้าและลงรายการสินค้า พัฒนาด้วย PHP และ SQLite3 เพื่อช่วยจัดการข้อมูลสินค้า ตรวจสอบสต็อก และอำนวยความสะดวกในการใช้งานของ STSP INNOMART",
                     features: [
-                        "ระบบจัดการข้อมูลสินค้า (CRUD) และติดตามสต็อก",
+                        "ระบบจัดการข้อมูลสินค้า",
                         "ประมวลผลฐานข้อมูลด้วย SQLite3",
                         "ระบบเข้าสู่ระบบสำหรับแอดมินในการอัปเดตข้อมูลสินค้า"
                     ]
