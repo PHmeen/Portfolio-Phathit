@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Sparkles, Globe } from 'lucide-react';
 import type { Language, TranslationStructure } from '../data/translations';
+import { getAssetPath } from '../utils/assetPath';
 
 interface NavbarProps {
     lang: Language;
@@ -102,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, t }) => {
                         title="Faculty of Science - ICT, Prince of Songkla University"
                     >
                         <img
-                            src="imgportfolio/psulogo.png"
+                            src={getAssetPath("imgportfolio/psulogo.png")}
                             alt="PSU Logo"
                             className="h-4 w-auto object-contain"
                             onError={(e) => (e.currentTarget.style.display = 'none')}

@@ -1,6 +1,7 @@
 import { X, ExternalLink, Code, CheckCircle2, Lock } from 'lucide-react';
 import type { Project } from '../types/portfolio';
 import type { TranslationStructure } from '../data/translations';
+import { getAssetPath } from '../utils/assetPath';
 
 interface ProjectModalProps {
     project: Project | null;
@@ -45,7 +46,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, t 
                     <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden bg-[#0d1424] border border-white/10 flex items-center justify-center p-4 group">
                         {project.image ? (
                             <img
-                                src={project.image}
+                                src={getAssetPath(project.image)}
                                 alt={title}
                                 className="w-full h-full object-contain rounded-xl shadow-lg"
                                 onError={(e) => {

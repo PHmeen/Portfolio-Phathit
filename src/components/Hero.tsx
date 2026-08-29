@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import { Code, FileText, Mail, Phone, Sparkles, FolderCheck, Award, Briefcase } from 'lucide-react';
 import type { TranslationStructure } from '../data/translations';
+import { getAssetPath } from '../utils/assetPath';
 
 interface HeroProps {
     onCopy: (text: string, label: string) => void;
@@ -117,7 +118,7 @@ export const Hero: React.FC<HeroProps> = ({ onCopy, t }) => {
 
                     <div className="w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] rounded-full p-2.5 bg-gradient-to-br from-white/20 via-white/5 to-[var(--primary)]/40 backdrop-blur-xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.6)] relative">
                         <img
-                            src="imgportfolio/Meen.svg"
+                            src={getAssetPath("imgportfolio/Meen.svg")}
                             alt="Phathit Nudam Photo"
                             className="w-full h-full object-cover rounded-full animate-float shadow-inner"
                             onError={(e) => {

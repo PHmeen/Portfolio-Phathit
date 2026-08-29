@@ -2,6 +2,7 @@ import { FolderOpen, ExternalLink, Code, Lock, Maximize2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import type { Project } from '../types/portfolio';
 import type { TranslationStructure } from '../data/translations';
+import { getAssetPath } from '../utils/assetPath';
 
 interface ProjectsProps {
     onSelectProject: (project: Project) => void;
@@ -79,7 +80,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onSelectProject, t }) => {
                                 >
                                     {project.image ? (
                                         <img
-                                            src={project.image}
+                                            src={getAssetPath(project.image)}
                                             alt={projectTitle}
                                             className="w-full h-full object-contain rounded-xl group-hover/img:scale-105 transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.4)] border border-white/5"
                                             onError={(e) => {
