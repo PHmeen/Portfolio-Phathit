@@ -173,7 +173,6 @@ export const translations: Record<Language, TranslationStructure> = {
                     longDescription: "A web application developed during my internship at Southern Regional Science Park (PSU) to streamline meeting room reservations and catering orders using Next.js App Router, TypeScript, and Tailwind CSS.",
                     features: [
                         "Meeting room food & beverage reservation system",
-                        "Admin dashboard for managing bookings and menu items",
                         "Responsive layout for desktop and tablet users"
                     ]
                 },
@@ -290,7 +289,6 @@ export const translations: Record<Language, TranslationStructure> = {
                     longDescription: "เว็บแอปพลิเคชันที่พัฒนาในช่วงฝึกงาน ณ อุทยานวิทยาศาสตร์ภาคใต้ (มอ.) เพื่อช่วยอำนวยความสะดวกในการจองห้องประชุมและเลือกรายการอาหาร/เครื่องดื่ม พัฒนาด้วย Next.js App Router, TypeScript และ Tailwind CSS",
                     features: [
                         "ระบบจองห้องประชุมพร้อมเลือกรายการอาหารและเครื่องดื่ม",
-                        "แผงผู้ดูแลระบบ (Admin Dashboard) สำหรับตรวจสอบคำขอและรายการจอง",
                         "ดีไซน์ Responsive รองรับการใช้งานบนคอมพิวเตอร์และแท็บเล็ต"
                     ]
                 },
